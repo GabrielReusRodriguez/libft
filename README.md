@@ -1,0 +1,2 @@
+# libft
+Common Core - libft
