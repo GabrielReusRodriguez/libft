@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 20:42:03 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 21:05:35 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/02 22:49:33 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/02 23:14:16 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stddef.h>
+
+char	*strchr(const char *s, int c)
 {
-	if (
-		(c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9')
-	)
+	char	*string;
+
+	string = (char *)s;
+	while (*string != '\0')
 	{
-		return (1);
+		if (*string == c)
+			return (string);
+		string++;
 	}
-	return (0);
+	return (NULL);
 }

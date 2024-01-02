@@ -6,22 +6,15 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:36:12 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 20:52:49 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:03:33 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if ((c >= '0' && c <= '9'))
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-		{
-			return (0);
-		}
-		i++;
+		return (1);
 	}
-	return (1);
+	return (0);
 }

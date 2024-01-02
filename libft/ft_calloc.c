@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 20:42:03 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 21:05:35 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/02 23:49:32 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/03 00:00:32 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stdlib.h>
+
+void	*calloc(size_t nmemb, size_t size)
 {
-	if (
-		(c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9')
-	)
+	unsigned char	*ptr;
+	size_t			i;
+
+	ptr = (unsigned char *)malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < nmemb * size)
 	{
-		return (1);
+		ptr[i] = '\0';
+		i++;
 	}
-	return (0);
+	return (ptr);
 }

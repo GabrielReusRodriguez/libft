@@ -6,24 +6,17 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:30:07 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 20:53:38 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:02:18 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (!((c >= 'a' && c <= 'z')
+			|| (c >= 'A' && c <= 'Z'))
+	)
 	{
-		if (!((str[i] >= 'a' && str[i] <= 'z')
-				|| (str[i] >= 'A' && str[i] <= 'Z'))
-		)
-		{
-			return (0);
-		}
-		i++;
+		return (0);
 	}
 	return (1);
 }

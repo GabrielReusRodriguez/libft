@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 20:42:03 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 21:05:35 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/02 23:07:40 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/02 23:13:15 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+#include <stddef.h>
+
+void	*memchr(const void *s, int c, size_t n)
 {
-	if (
-		(c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9')
-	)
+	char		*ptr;
+	size_t		i;
+
+	ptr = (char *)s;
+	i = 0;
+	while (i < n && ptr[i] != '\0')
 	{
-		return (1);
+		if (ptr[i] == c)
+			return (ptr + i);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
