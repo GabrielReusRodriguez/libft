@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:37:22 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 23:54:11 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/03 00:22:50 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ int		memcmp(const void *s1, const void *s2, size_t n);
 char	*strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nbr);
 void	*calloc(size_t nmemb, size_t size);
+char	*strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
