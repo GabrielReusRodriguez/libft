@@ -6,7 +6,7 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/04 01:42:47 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/01/04 23:56:43 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC_FILES=$(wildcard *.c)
 #LIBFT_SRC_FILES=$(wildcard *.c)
 #LIBFT_OBJ_FILES=$(LIBFT_SRC_FILES:%.c=${BIN_DIR}/%.o)
 
-BONUS_SRC_FILES= ft_lstnew.c ft_lstadd_front.c  
+BONUS_SRC_FILES= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c   
+BONUS_SRC_FILES+= ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+BONUS_SRC_FILES+= ft_lstmap.c
 BONUS_OBJ_FILES=$(BONUS_SRC_FILES:%.c=${BIN_DIR}/%.o)
 
 
