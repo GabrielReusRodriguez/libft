@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 23:54:27 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:47:28 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/04 00:45:22 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/04 00:55:57 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
 
-char	*ft_strdup(const char *s)
+static void	ft_putnbr(unsigned int n, int fd)
 {
-	char	*ptr;
-	size_t	size;
-	size_t	i;
+	char	digit;
 
-	size = ft_strlen(s);
-	ptr = (char *)malloc(size);
-	if (ptr == NULL)
-		return (NULL);
-	while (i < size)
+	if (n < 10)
 	{
-		ptr[i] = s[i];
-		i++;
+		digit = '0' + n;
+		write(1, &digit, 1);
+		return ;
 	}
-	return (ptr);
+	ft_putnbr(n / 10, fd);
+	ft_putnbr(n % 10, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	unsigned int	nbr;
+
+	if (n < 0)
+	{
+		nbr = n * (-1);
+		write(fd, "-", 1);
+	}
+	else
+		nbr = n;
+	ft_putnbr(nbr, fd);
 }

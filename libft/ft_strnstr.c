@@ -6,13 +6,13 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 23:20:01 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 23:40:30 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:48:55 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	char	*occurrence;

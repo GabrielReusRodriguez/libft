@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   test_itoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 23:54:27 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:47:28 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/03 22:14:02 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/04 00:02:27 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <stdio.h>
+#include <limits.h>
+#include "../libft/libft.h"
 
-char	*ft_strdup(const char *s)
+int main(void)
 {
-	char	*ptr;
-	size_t	size;
-	size_t	i;
-
-	size = ft_strlen(s);
-	ptr = (char *)malloc(size);
-	if (ptr == NULL)
-		return (NULL);
-	while (i < size)
-	{
-		ptr[i] = s[i];
-		i++;
-	}
-	return (ptr);
+    int value[]={0,1,-1,30,-40,INT_MAX,INT_MIN,101,-101,011,-011};
+    int size = 11;
+    int i;
+    
+    i = 0;
+    while (i <size)
+    {
+        printf("Value %d in string is: _%s_\n",value[i],ft_itoa(value[i]));
+        i++;
+    }
+    return (0);
 }

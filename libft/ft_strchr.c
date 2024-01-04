@@ -6,13 +6,13 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 22:49:33 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 23:14:16 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:46:52 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	char	*string;
 

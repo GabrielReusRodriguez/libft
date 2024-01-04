@@ -6,13 +6,13 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 22:53:52 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 23:15:11 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:49:00 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*occurrence;
 

@@ -6,13 +6,13 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 22:57:29 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 23:19:16 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:48:15 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 	int		cmp;

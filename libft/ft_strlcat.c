@@ -6,15 +6,14 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 22:09:55 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/02 22:35:16 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:48:41 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s);
-
-size_t	strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_size;
 	size_t	src_size;
