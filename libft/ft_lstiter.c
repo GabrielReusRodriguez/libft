@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 00:01:31 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/05 00:44:14 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/05 01:01:48 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	t_list	*node;
 
 	node = lst;
-	while (node->next != NULL)
+	while (node != NULL)
 	{
 		(*f)(node->content);
 		node = node->next;
