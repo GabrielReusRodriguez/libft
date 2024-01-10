@@ -5,13 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 22:52:25 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:30:36 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:24:40 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:24:46 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+/*
+Obtengo el número de dígitos que tiene dividienco por 10 . En el momento
+	que la división por 10 sea 0 paro ( OJO que empiezo por i = 1 puesto que las
+	unidades cuentan como 1 dígito)
+*/
 static unsigned int	ft_num_digits(unsigned int nb)
 {
 	unsigned int	num_digits;
@@ -25,6 +30,9 @@ static unsigned int	ft_num_digits(unsigned int nb)
 	return (num_digits);
 }
 
+/*
+	Obtengo los n caracteres y los transformo a char dejándolos en el string
+*/
 static void	ft_get_characters( char *ch_number, unsigned int size,
 			unsigned int number)
 {

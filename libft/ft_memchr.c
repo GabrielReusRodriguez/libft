@@ -5,23 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 23:07:40 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:46:29 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:28:40 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:28:44 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+/*
+Hay que hacer el cast de int c a unsigned char xq lo especifica la documentacion
+*/
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char		*ptr;
-	size_t		i;
+	unsigned char		*ptr;
+	size_t				i;
+	unsigned char		uc;
 
-	ptr = (char *)s;
+	ptr = (unsigned char *)s;
+	uc = (unsigned char)c;
 	i = 0;
-	while (i < n && ptr[i] != '\0')
+	while (i < n)
 	{
-		if (ptr[i] == c)
+		if (ptr[i] == uc)
 			return (ptr + i);
 		i++;
 	}

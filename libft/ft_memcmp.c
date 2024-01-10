@@ -5,13 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 23:15:27 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:46:37 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:28:49 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:29:32 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
+/*
+Comparamos dos punteros de memoria , los n primeros bytes.
+Man ESPECIFICA que se han de comparar como unsigned char.
+*/
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*str1;

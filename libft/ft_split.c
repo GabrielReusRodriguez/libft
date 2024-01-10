@@ -5,14 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 21:45:12 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/03 22:48:56 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:31:14 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 01:21:49 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+/*
+Obtengo el número de tokens que tiene el string. 
+Primero salto todos los tokens seguidos que hayan
+CUando me encuentro algo que NO sea token, lo voy saltando y cuando 
+	me encuentre otro token o el final de linea , tokens ++.
+*/
 static unsigned int	ft_get_num_tokens(char *s, char c)
 {
 	unsigned int	num_tokens;
@@ -33,6 +39,13 @@ static unsigned int	ft_get_num_tokens(char *s, char c)
 	return (num_tokens);
 }
 
+/*
+Primero cuento los tokens para hacer el malloc del char ** 
+Para cada num de token, 
+	primero salto todos los separadores juntos hasta el token
+	luego calculo los chars que hay hasta el siguiente token.
+	finlamente hago un substr desde el origen del token con el len calculado
+*/
 char	**ft_split(char const *s, char c)
 {
 	char			**tokens;

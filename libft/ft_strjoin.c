@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 00:16:59 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/03 00:21:16 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:31:59 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:32:02 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+/*
+Unimos los strinfs que nos pasan y acabamos en \0
+*/
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str_joined;
@@ -37,5 +40,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str_joined[size_s1 + i] = s2[i];
 		i++;
 	}
+	str_joined[size_s1 + i] = '\0';
 	return (str_joined);
 }

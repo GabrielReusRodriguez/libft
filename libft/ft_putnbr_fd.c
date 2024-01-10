@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 00:45:22 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:55:57 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:30:52 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:30:57 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 static void	ft_putnbr(unsigned int n, int fd)
 {
@@ -19,13 +19,20 @@ static void	ft_putnbr(unsigned int n, int fd)
 	if (n < 10)
 	{
 		digit = '0' + n;
-		write(1, &digit, 1);
+		ft_putchar_fd(digit, fd);
 		return ;
 	}
 	ft_putnbr(n / 10, fd);
 	ft_putnbr(n % 10, fd);
 }
 
+/*
+Lo hago recursivo y reaprovechando ft_putchar_fd.
+Como me envían un int, el mismo int sin signo siempre cabe en unsigned int
+	para meterlo, en caso negativo lo multiplico por -1 . OJO!!! 
+	que haciendo nbr = -n NO funciona ya que mete -n en otro int y hace
+	overflow.
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nbr;
@@ -33,7 +40,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		nbr = n * (-1);
-		write(fd, "-", 1);
+		ft_putchar_fd('-', fd);
 	}
 	else
 		nbr = n;

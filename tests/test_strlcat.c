@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   test_strlcat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:29:38 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:29:44 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/09 12:06:36 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/09 20:38:57 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
 
-/*
-Copia la memoria pero NO se revisa si hay solapamiento.
-*/
-void	*ft_memcpy(void	*dest, const void *src, size_t n)
+int main(void)
 {
-	unsigned char	*dest_ptr;
-	unsigned char	*src_ptr;
-	size_t			i;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	dest_ptr = (unsigned char *)dest;
-	src_ptr = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		dest_ptr[i] = src_ptr[i];
-		i++;
-	}
-	return (dest);
 }

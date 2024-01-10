@@ -5,23 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 23:37:21 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 23:43:38 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:28:28 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:28:32 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
-int	ft_listsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	int		size;
+	t_list	*node;
 
-	size = 1;
-	while (lst->next != NULL)
+	size = 0;
+	node = lst;
+	while (node != NULL)
 	{
 		size++;
-		lst = lst->next;
+		node = node->next;
 	}
 	return (size);
 }

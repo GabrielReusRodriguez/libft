@@ -5,17 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 00:37:02 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:40:17 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:31:39 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:31:40 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+Para cada caracter del string, aplicamos la función apuntada por el puntero
+f.
+*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
 	i = 0;
-	while (*s != '\0')
+	while (s[i] != '\0')
 	{
 		(*f)(i, s + i);
 		i++;

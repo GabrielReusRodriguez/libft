@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 00:31:39 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/04 00:36:25 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:32:35 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 00:32:37 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+/*
+Aplica la función apuntada por f a cada letra del string.
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*str;
@@ -25,7 +28,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	while (i < len)
+	{
 		str[i] = (*f)(i, s[i]);
+		i++;
+	}
 	str[i] = '\0';
 	return (str);
 }

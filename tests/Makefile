@@ -10,13 +10,15 @@ BIN_FILES= $(SRC_FILES:%.c=${BIN_DIR}/%.out)
 
 #T_ATOI=test_atoi.out
 #T_BZERO=test_atoi.out
-T_SPLIT=${BIN_DIR}/test_split.out
-T_ITOA=${BIN_DIR}/test_itoa.out
+#T_SPLIT=${BIN_DIR}/test_split.out
+#T_ITOA=${BIN_DIR}/test_itoa.out
 
 
 #all: ${T_ATOI} ${T_BZERO}
-all: ${LIB_DIR} ${T_SPLIT} ${T_ITOA}
+all: ${LIB_DIR} ${BIN_DIR} ${BIN_FILES} 
 
+${BIN_DIR}:
+	mkdir -p ${BIN_DIR}
 
 ${LIB_DIR}: 
 	make all -C ../libft/
