@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:25:08 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:39:31 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/11 23:27:26 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/11 23:46:57 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-/*
-Itero nodo a nodo llamando a ft_lstdelone  ( reaprovechada ) que es la 
-	función encargada de borrar un nodo.
-*/
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_isupper(int c)
 {
-	t_list	*node;
-	t_list	*next;
-
-	node = *lst;
-	while (node != NULL)
-	{
-		next = node->next;
-		ft_lstdelone(node, del);
-		node = next;
-	}
-	*lst = NULL;
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

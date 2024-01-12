@@ -6,15 +6,12 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:29:38 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:29:44 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:02:57 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-/*
-Copia la memoria pero NO se revisa si hay solapamiento.
-*/
 void	*ft_memcpy(void	*dest, const void *src, size_t n)
 {
 	unsigned char	*dest_ptr;

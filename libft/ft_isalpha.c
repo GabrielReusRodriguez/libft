@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:23:54 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:23:56 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:56:38 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	ft_isalpha(int c)
 {
-	if (!((c >= 'a' && c <= 'z')
-			|| (c >= 'A' && c <= 'Z'))
-	)
+	if (ft_islower(c) || ft_isupper(c))
 	{
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }

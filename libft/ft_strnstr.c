@@ -6,16 +6,12 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:33:29 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:33:32 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:23:38 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-/*
-Busca el string little ENTERO dentro de los primeros len bytes de big y 
-devuelve el puntero a la primera aparición o null.
-*/
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;

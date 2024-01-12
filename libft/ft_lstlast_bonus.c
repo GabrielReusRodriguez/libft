@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:24:50 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 01:24:36 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:25:49 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/12 00:27:04 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
-/*
-Reaprovecho la función de obtener el último nodo de la lista, solo he de 
-	tener en cuenta si la lista me viene vacía en cuyo caso el nodo será
-	el inicio de la lista.
-*/
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*last_node;
+	t_list	*node;
 
-	if (*lst == NULL)
+	if (lst == NULL)
+		return (NULL);
+	node = lst;
+	while (node->next != NULL)
 	{
-		*lst = new;
-		return ;
+		node = node->next;
 	}
-	last_node = ft_lstlast(*lst);
-	last_node->next = new;
+	return (node);
 }

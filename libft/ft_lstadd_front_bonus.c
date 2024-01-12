@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:25:49 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:25:55 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:25:00 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/12 00:26:51 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "libft.h"
 
-/*
-Hay que tener en cuenta si la lista está vacia ( lst == NULL ) y buscar 
-	el nodo que next = NULL.
-*/
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*node;
+	t_list	*next;
 
-	if (lst == NULL)
-		return (NULL);
-	node = lst;
-	while (node->next != NULL)
+	if (*lst == NULL)
 	{
-		node = node->next;
+		*lst = new;
+		return ;
 	}
-	return (node);
+	next = (*lst);
+	*lst = new;
+	new->next = next;
 }

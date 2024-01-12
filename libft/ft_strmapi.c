@@ -6,16 +6,13 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:32:35 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:32:37 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:23:11 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-/*
-Aplica la función apuntada por f a cada letra del string.
-*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*str;

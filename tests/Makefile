@@ -27,10 +27,10 @@ ${BIN_DIR}/%.out:%.c
 	cc ${CFLAGS} $^ ${LIB_DIR} -o $@
 
 clean:
-	-rm ${BIN_DIR}/*.out
+	rm -f ${BIN_DIR}/*.out
 
 fclean: clean
-	-rm ./*.out
+	rm -f ./*.out
 
 re: clean all
 

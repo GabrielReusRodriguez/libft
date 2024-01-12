@@ -6,22 +6,18 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:33:37 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:33:43 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:24:13 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-/*
-Segun la documentacion, hay que hacer cast del int a char para hacer la 
-comparacion de los caracteres
-*/
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*occurrence;
 	char	character;
 
-	character = c;
+	character = (char)c;
 	occurrence = NULL;
 	while (*s != '\0')
 	{

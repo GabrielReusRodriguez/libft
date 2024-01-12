@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:30:52 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:30:57 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:06:58 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ static void	ft_putnbr(unsigned int n, int fd)
 	ft_putnbr(n % 10, fd);
 }
 
-/*
-Lo hago recursivo y reaprovechando ft_putchar_fd.
-Como me envían un int, el mismo int sin signo siempre cabe en unsigned int
-	para meterlo, en caso negativo lo multiplico por -1 . OJO!!! 
-	que haciendo nbr = -n NO funciona ya que mete -n en otro int y hace
-	overflow.
-*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nbr;

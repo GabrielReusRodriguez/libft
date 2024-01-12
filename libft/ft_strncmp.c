@@ -6,16 +6,12 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:33:14 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:33:21 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:23:20 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-/*
-Las comparaciones se han de hacer con unsigned chars! 
-Por eso se hace el cast.
-*/
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;

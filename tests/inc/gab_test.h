@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   gab_test.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
+/*   By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:23:36 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/11 23:26:22 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 16:05:12 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/10 16:11:20 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#ifndef GAB_TEST_H
+# define GAB_TEST_H
 
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	unsigned char	*ptr;
+# include <stdio.h>
 
-	ptr = (unsigned char *)malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
-}
+# define PRINTF_DEFAULT_COLOR printf("\033[0m")
+# define PRINTF_RED_COLOR printf("\033[0;31m")
+# define PRINTF_GREEN_COLOR printf("\033[0;32m")
+
+#endif

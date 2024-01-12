@@ -6,15 +6,12 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:23:16 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/10 00:23:20 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/11 23:48:53 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-Check si es un caracter que podemos eliminar, es decir espacios, tabs \ns...
-*/
 static int	ft_is_removable_char(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\r'
@@ -23,10 +20,6 @@ static int	ft_is_removable_char(char c)
 	return (0);
 }
 
-/*
-Atoi solo acepta un signo, si tiene +- o -- o similares salta el error
-y devuelve 0
-*/
 static int	ft_check_sign(char **nbr)
 {
 	int	sign;
@@ -47,11 +40,6 @@ static int	ft_check_sign(char **nbr)
 	return (sign);
 }
 
-/*
-Primero eliminio los caracteres que se pueden borrar
-Luego compruebo el signo
-por ultimo , al primer char que encuentro no numerico, salta el error
-*/
 int	ft_atoi(const char *nbr)
 {
 	int		total;
