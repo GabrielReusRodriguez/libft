@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME=libft.a
-CFLAGS=-Wall -Wextra -Werror -MMD
+CFLAGS=-Wall -Wextra -Werror -MMD -MP
 BIN_DIR=.
 SRC_DIR=.
 
