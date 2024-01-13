@@ -6,11 +6,12 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/12 02:23:10 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/01/13 02:23:53 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
+BONUS_NAME=libft_bonus.a
 CFLAGS=-Wall -Wextra -Werror -MMD -MP
 BIN_DIR=.
 SRC_DIR=.
@@ -85,12 +86,15 @@ clean:
 	rm -f ${BIN_DIR}/*.d
 
 fclean: clean 
-	rm -f ${NAME}
+	rm -f *.a
 	
 re: fclean all
 
-bonus:${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES}
-	ar -rcs ${NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
+bonus: ${BONUS_NAME}
+
+${BONUS_NAME}: ${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES} Makefile
+	ar -rcs ${BONUS_NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
+	cp ${BONUS_NAME} ${NAME}
 
 -include ${LIBFT_DEP_FILES} ${BONUS_DEP_FILES}
 

@@ -6,22 +6,14 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:23:25 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/11 23:25:42 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:48:50 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	char	*ptr;
-
-	i = 0;
-	ptr = (char *)s;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+	ft_memset(s, '\0', n);
 }

@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:29:38 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/12 00:02:57 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:41:06 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void	*dest, const void *src, size_t n)
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
+	if (n == 0)
+		return (dest);
 	dest_ptr = (unsigned char *)dest;
 	src_ptr = (unsigned char *)src;
 	i = 0;

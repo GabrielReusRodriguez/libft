@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:29:52 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/12 00:05:05 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:40:43 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	if (dest == NULL && src == NULL)
 		return (NULL);
+	if (n == 0)
+		return (dest);
 	dest_ptr = (unsigned char *) dest;
 	src_ptr = (unsigned char *) src;
 	if (src_ptr < dest_ptr)
