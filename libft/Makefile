@@ -6,7 +6,7 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/13 02:23:53 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/01/14 01:23:50 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ LIBFT_SRC_FILES=	ft_atoi.c		\
 					ft_strtrim.c	\
 					ft_substr.c		\
 					ft_tolower.c	\
-					ft_toupper.c	
+					ft_toupper.c	\
+					ft_utoa.c
 
 BONUS_SRC_FILES=	ft_lstadd_front_bonus.c	\
 					ft_lstadd_back_bonus.c	\
