@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:30:41 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/14 22:06:41 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:26:20 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_iputendl_fd(char *s, int fd)
 	if (num_bytes_str >= 0)
 		num_bytes = num_bytes_str;
 	if (num_bytes_nl >= 0)
-		num_bytes = num_bytes  + num_bytes_nl;
+		num_bytes = num_bytes + num_bytes_nl;
 	return (num_bytes);
 }

@@ -6,12 +6,11 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/14 22:14:43 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/01/16 23:59:49 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
-BONUS_NAME=libft_bonus.a
 CFLAGS=-Wall -Wextra -Werror -MMD -MP
 BIN_DIR=.
 SRC_DIR=.
@@ -77,13 +76,11 @@ LIBFT_DEP_FILES=$(LIBFT_SRC_FILES:.c=.d)
 
 all:${NAME}
 	
-${NAME}: ${BIN_DIR} ${LIBFT_OBJ_FILES} Makefile
+${NAME}: ${LIBFT_OBJ_FILES} 
 	ar -rcs ${NAME} ${LIBFT_OBJ_FILES}
-
-${BIN_DIR}:
-	mkdir -p ${BIN_DIR}
 	
-${BIN_DIR}/.o:.c
+${BIN_DIR}/%.o:%.c Makefile
+	@mkdir -p ${BIN_DIR}
 	cc ${CFLAGS}  -c -o $@  $< 
 
 clean:
@@ -92,16 +89,15 @@ clean:
 
 fclean: clean 
 	rm -f *.a
+	rm -f bonus
 	
 re: fclean all
 
-bonus: ${BONUS_NAME}
-
-${BONUS_NAME}: ${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES} Makefile
-	ar -rcs ${BONUS_NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
-	cp ${BONUS_NAME} ${NAME}
-
+bonus: ${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES}
+	ar -rcs  ${NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
+	@touch bonus
+	
 -include ${LIBFT_DEP_FILES} ${BONUS_DEP_FILES}
 
-.PHONY= all clean fclean re bonus 
+.PHONY= all clean fclean re
 

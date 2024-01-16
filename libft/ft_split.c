@@ -6,16 +6,29 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:31:14 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/12 00:38:19 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:19:34 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static unsigned int	ft_get_num_tokens(char *s, char c)
+static void	ft_free_all(char **s)
 {
-	unsigned int	num_tokens;
+	size_t	i;
+
+	i = 0;
+	while (s[i] != NULL)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+static size_t	ft_get_num_tokens(char *s, char c)
+{
+	size_t	num_tokens;
 
 	num_tokens = 0;
 	while (*s != '\0')
@@ -33,6 +46,56 @@ static unsigned int	ft_get_num_tokens(char *s, char c)
 	return (num_tokens);
 }
 
+static size_t	ft_count_word_len(const char *s, int c)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] != c && s[len] != '\0')
+		len++;
+	return (len);
+}
+
+static char	*ft_get_word_start(const char *s, int c)
+{
+	size_t	word_start;
+
+	word_start = 0;
+	while (s[word_start] == c && s[word_start] != '\0')
+		word_start++;
+	return ((char *)(s + word_start));
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char			**tokens;
+	size_t			num_tokens;
+	size_t			i;
+	size_t			len;
+
+	num_tokens = ft_get_num_tokens((char *)s, c);
+	tokens = (char **)malloc((num_tokens + 1) * sizeof(char *));
+	if (tokens == NULL)
+		return (NULL);
+	i = 0;
+	while (*s != '\0')
+	{
+		s = ft_get_word_start(s, c);
+		len = ft_count_word_len(s, c);
+		if (len > 0)
+			tokens[i++] = ft_substr(s, 0, len);
+		if (tokens[i - 1] == NULL)
+		{
+			ft_free_all(tokens);
+			return (NULL);
+		}
+		s = s + len;
+	}
+	tokens[i] = NULL;
+	return (tokens);
+}
+
+/*
 char	**ft_split(char const *s, char c)
 {
 	char			**tokens;
@@ -61,3 +124,4 @@ char	**ft_split(char const *s, char c)
 	tokens[i] = NULL;
 	return (tokens);
 }
+*/

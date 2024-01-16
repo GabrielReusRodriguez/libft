@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:28:40 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/11 23:50:23 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:34:30 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t				i;
 	unsigned char		uc;
 
+	if (s == NULL)
+		return (NULL);
 	ptr = (unsigned char *)s;
 	uc = (unsigned char)c;
 	i = 0;
