@@ -6,7 +6,7 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/16 23:59:49 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/01/17 00:07:20 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,14 +88,14 @@ clean:
 	rm -f ${BIN_DIR}/*.d
 
 fclean: clean 
-	rm -f *.a
-	rm -f bonus
+	rm -f ${BIN_DIR}/*.a
+	rm -f ${BIN_DIR}/bonus
 	
 re: fclean all
 
 bonus: ${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES}
 	ar -rcs  ${NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
-	@touch bonus
+	@touch ${BIN_DIR}/bonus
 	
 -include ${LIBFT_DEP_FILES} ${BONUS_DEP_FILES}
 
