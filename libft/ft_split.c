@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:31:14 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/16 23:19:34 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/21 02:33:24 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 	if (tokens == NULL)
 		return (NULL);
 	i = 0;
-	while (*s != '\0')
+	while (*s != '\0' && i < num_tokens)
 	{
 		s = ft_get_word_start(s, c);
 		len = ft_count_word_len(s, c);

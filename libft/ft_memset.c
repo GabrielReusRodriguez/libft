@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:30:02 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/16 23:21:25 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/21 02:26:04 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void	*s, int c, size_t n)
 	size_t			i;
 	unsigned char	*ptr;
 
-	if (s == NULL)
-		return (NULL);
 	i = 0;
 	ptr = (unsigned char *)s;
 	while (i < n)
