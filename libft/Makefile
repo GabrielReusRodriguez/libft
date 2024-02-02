@@ -6,98 +6,61 @@
 #    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/01/17 00:07:20 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/02 02:08:51 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
 CFLAGS=-Wall -Wextra -Werror -MMD -MP
-BIN_DIR=.
-SRC_DIR=.
 
-LIBFT_SRC_FILES=	ft_atoi.c			\
-					ft_bzero.c			\
-					ft_calloc.c			\
-					ft_iputchar_fd.c	\
-					ft_iputendl_fd.c	\
-					ft_iputnbr_fd.c		\
-					ft_iputstr_fd.c		\
-					ft_isalnum.c		\
-					ft_isalpha.c		\
-					ft_isascii.c		\
-					ft_isdigit.c		\
-					ft_islower.c		\
-					ft_isupper.c		\
-					ft_isprint.c		\
-					ft_itoa.c			\
-					ft_memchr.c			\
-					ft_memcmp.c			\
-					ft_memcpy.c			\
-					ft_memmove.c		\
-					ft_memset.c			\
-					ft_putchar_fd.c		\
-					ft_putendl_fd.c		\
-					ft_putnbr_fd.c		\
-					ft_putstr_fd.c		\
-					ft_split.c			\
-					ft_strchr.c			\
-					ft_strdup.c			\
-					ft_striteri.c		\
-					ft_strjoin.c		\
-					ft_strlcat.c		\
-					ft_strlcpy.c		\
-					ft_strlen.c			\
-					ft_strmapi.c		\
-					ft_strncmp.c		\
-					ft_strnstr.c		\
-					ft_strrchr.c		\
-					ft_strtrim.c		\
-					ft_substr.c			\
-					ft_tolower.c		\
-					ft_toupper.c		\
-					ft_utoa.c
+BIN_DIR=./bin
+SRC_DIR=./src
+INC_DIR=./inc
 
-BONUS_SRC_FILES=	ft_lstadd_front_bonus.c	\
-					ft_lstadd_back_bonus.c	\
-					ft_lstclear_bonus.c		\
-					ft_lstdelone_bonus.c	\
-					ft_lstiter_bonus.c		\
-					ft_lstlast_bonus.c		\
-					ft_lstmap_bonus.c		\
-					ft_lstnew_bonus.c		\
-					ft_lstsize_bonus.c		
+FT_DIR 			= ${SRC_DIR}/ft 
+GET_NEXT_DIR 	= ${SRC_DIR}/ft_get_next_line
+FT_PRINTF_DIR 	= ${SRC_DIR}/ft_printf 
 
-
-BONUS_OBJ_FILES=$(BONUS_SRC_FILES:.c=.o)
-BONUS_DEP_FILES=$(BONUS_SRC_FILES:.c=.d)
-
-LIBFT_OBJ_FILES=$(LIBFT_SRC_FILES:.c=.o)
-LIBFT_DEP_FILES=$(LIBFT_SRC_FILES:.c=.d)
+FT_HDR 			= ${INC_DIR}/libft.h
+GET_NEXT_HDR 	= ${INC_DIR}/ft_get_next_line.h
+FT_PRINTF_HDR 	= ${INC_DIR}/ft_printf.h
 
 all:${NAME}
+
+${NAME}: ${BIN_DIR} ${BIN_DIR}/ft/libft.a ${BIN_DIR}/ft_get_next_line/ft_get_next_line.a ${BIN_DIR}/ft_printf/ft_printf.a  Makefile	
+	ar -rcsT ${NAME} ${BIN_DIR}/ft/libft.a  ${BIN_DIR}/ft_get_next_line/ft_get_next_line.a ${BIN_DIR}/ft_printf/ft_printf.a	
+
+${BIN_DIR}/ft/libft.a:
+	make all -C ${FT_DIR}
+
+${BIN_DIR}/ft_get_next_line/ft_get_next_line.a: ${BIN_DIR}/ft/libft.a
+	make all -C ${GET_NEXT_DIR}
+
+${BIN_DIR}/ft_printf/ft_printf.a: ${BIN_DIR}/ft/libft.a
+	make all -C ${FT_PRINTF_DIR}
 	
-${NAME}: ${LIBFT_OBJ_FILES} 
-	ar -rcs ${NAME} ${LIBFT_OBJ_FILES}
-	
-${BIN_DIR}/%.o:%.c Makefile
-	@mkdir -p ${BIN_DIR}
-	cc ${CFLAGS}  -c -o $@  $< 
+${BIN_DIR}:
+	mkdir -p ${BIN_DIR}
 
 clean:
-	rm -f ${BIN_DIR}/*.o
-	rm -f ${BIN_DIR}/*.d
+	make clean -C  ${FT_DIR}
+	make clean -C  ${GET_NEXT_DIR}
+	make clean -C  ${FT_PRINTF_DIR}
 
 fclean: clean 
-	rm -f ${BIN_DIR}/*.a
-	rm -f ${BIN_DIR}/bonus
+	make fclean -C  ${FT_DIR}
+	make fclean -C  ${GET_NEXT_DIR}
+	make fclean -C  ${FT_PRINTF_DIR}
+	rm ${NAME}
 	
 re: fclean all
 
-bonus: ${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES}
-	ar -rcs  ${NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
-	@touch ${BIN_DIR}/bonus
-	
--include ${LIBFT_DEP_FILES} ${BONUS_DEP_FILES}
+#bonus:${BONUS_OBJ_FILES} ${LIBFT_OBJ_FILES}
+#	ar -rcs ${NAME} ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
+#	@touch bonus
+
+-include ${LIBFT_DEP_FILES}
+-include ${BONUS_DEP_FILES}
 
 .PHONY= all clean fclean re
 

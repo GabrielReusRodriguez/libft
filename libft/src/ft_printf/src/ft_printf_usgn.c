@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iputendl_fd.c                                   :+:      :+:    :+:   */
+/*   ft_printf_usgn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:30:41 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/15 20:26:20 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 19:19:49 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/02/02 01:58:53 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include "libft.h"
+#include "ft_printf.h"
 
-int	ft_iputendl_fd(char *s, int fd)
+char	*ft_printf_usgn(va_list argp, t_format	*format)
 {
-	int	num_bytes_str;
-	int	num_bytes_nl;
-	int	num_bytes;
+	unsigned int	arg_value;
+	char			*ch_number;
 
-	num_bytes = 0;
-	num_bytes_str = ft_iputstr_fd(s, fd);
-	num_bytes_nl = ft_iputchar_fd('\n', fd);
-	if (num_bytes_str >= 0)
-		num_bytes = num_bytes_str;
-	if (num_bytes_nl >= 0)
-		num_bytes = num_bytes + num_bytes_nl;
-	return (num_bytes);
+	(void)format;
+	arg_value = va_arg(argp, unsigned int);
+	ch_number = ft_utoa(arg_value);
+	if (ch_number != NULL)
+		ch_number = ft_apply_width(ch_number, format);
+	return (ch_number);
 }

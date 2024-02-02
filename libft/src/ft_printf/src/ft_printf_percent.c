@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_printf_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:30:02 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/21 02:26:04 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 19:19:36 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/02/02 01:58:11 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include "libft.h"
+#include "ft_printf.h" 
 
-void	*ft_memset(void	*s, int c, size_t n)
+char	*ft_printf_percent(t_format *format)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char	*c;
+	char	character;
 
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < n)
+	character = '%';
+	c = ft_ptr_new_char_buffer(2);
+	if (c == NULL)
+		return (NULL);
+	c[0] = character;
+	c[1] = '\0';
+	if (c != NULL && format->n_width > 0)
 	{
-		ptr[i] = c;
-		i++;
+		c = ft_apply_width(c, format);
 	}
-	return (ptr);
+	return (c);
 }

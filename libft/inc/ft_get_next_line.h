@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:28:28 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/15 20:26:00 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/20 16:36:38 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/02/02 01:38:46 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
+#ifndef FT_GET_NEXT_LINE_H
+# define FT_GET_NEXT_LINE_H
 
-int	ft_lstsize(t_list *lst)
-{
-	int		size;
-	t_list	*node;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	size = 0;
-	node = lst;
-	while (node != NULL)
-	{
-		size++;
-		node = node->next;
-	}
-	return (size);
-}
+# include <limits.h>
+
+# ifndef OPEN_MAX
+#  include <stdio.h>
+#  define OPEN_MAX FOPEN_MAX
+# endif
+
+char		*ft_get_buffer(char *buffer);
+char	    *ft_get_next_line_many_fds(int fd);
+
+#endif

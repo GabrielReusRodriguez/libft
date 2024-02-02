@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_printf_low_hex.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
+/*   By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:24:50 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/16 23:30:59 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 19:19:29 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/31 21:04:22 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "libft.h"
+#include <stdarg.h>
+#include "ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_printf_low_hex(va_list argp, t_format	*format)
 {
-	t_list	*last_node;
+	unsigned int	arg;
+	char			*hex_num;
 
-	if (*lst == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	last_node = ft_lstlast(*lst);
-	last_node->next = new;
+	arg = va_arg(argp, unsigned int);
+	hex_num = ft_printf_htoa(arg, 0, format);
+	return (hex_num);
 }

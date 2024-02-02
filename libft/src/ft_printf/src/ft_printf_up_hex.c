@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_printf_up_hex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
+/*   By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:25:14 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/13 01:42:36 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 19:19:46 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/30 21:25:04 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <stdarg.h>
+#include "ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+char	*ft_printf_up_hex(va_list argp, t_format	*format)
 {
-	if (del == NULL)
-		return ;
-	(*del)(lst->content);
-	free(lst);
+	unsigned int	arg;
+	char			*hex_number;
+
+	arg = va_arg(argp, unsigned int);
+	hex_number = ft_printf_htoa(arg, 1, format);
+	return (hex_number);
 }

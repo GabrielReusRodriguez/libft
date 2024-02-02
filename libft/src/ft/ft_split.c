@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
+/*   By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 00:31:14 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/21 02:33:24 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:25:19 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static void	ft_free_all(char **s)
+static void	*ft_free_all(char **s, size_t last)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != NULL)
+	while (i < last)
 	{
 		free(s[i]);
 		i++;
 	}
 	free(s);
+	return (NULL);
 }
 
 static size_t	ft_get_num_tokens(char *s, char c)
@@ -46,82 +47,48 @@ static size_t	ft_get_num_tokens(char *s, char c)
 	return (num_tokens);
 }
 
-static size_t	ft_count_word_len(const char *s, int c)
+static size_t	ft_get_word_length(const char *str, char c)
 {
 	size_t	len;
 
 	len = 0;
-	while (s[len] != c && s[len] != '\0')
+	while (str[len] != c && str[len] != '\0')
 		len++;
 	return (len);
 }
 
-static char	*ft_get_word_start(const char *s, int c)
+static size_t	ft_jump_to_next_word(const char *str, size_t start, char c)
 {
-	size_t	word_start;
-
-	word_start = 0;
-	while (s[word_start] == c && s[word_start] != '\0')
-		word_start++;
-	return ((char *)(s + word_start));
+	while (str[start] == c && str[start] != '\0')
+		start++;
+	return (start);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**tokens;
-	size_t			num_tokens;
-	size_t			i;
-	size_t			len;
+	char	**tokens;
+	size_t	num_tokens;
+	size_t	i;
+	size_t	start;
+	size_t	len;
 
 	num_tokens = ft_get_num_tokens((char *)s, c);
-	tokens = (char **)malloc((num_tokens + 1) * sizeof(char *));
-	if (tokens == NULL)
-		return (NULL);
-	i = 0;
-	while (*s != '\0' && i < num_tokens)
-	{
-		s = ft_get_word_start(s, c);
-		len = ft_count_word_len(s, c);
-		if (len > 0)
-			tokens[i++] = ft_substr(s, 0, len);
-		if (tokens[i - 1] == NULL)
-		{
-			ft_free_all(tokens);
-			return (NULL);
-		}
-		s = s + len;
-	}
-	tokens[i] = NULL;
-	return (tokens);
-}
-
-/*
-char	**ft_split(char const *s, char c)
-{
-	char			**tokens;
-	unsigned int	num_tokens;
-	unsigned int	i;
-	unsigned int	start;
-	unsigned int	len;
-
-	num_tokens = ft_get_num_tokens((char *)s, c);
-	tokens = (char **)malloc((num_tokens + 1) * sizeof(char *));
+	tokens = (char **)ft_calloc(num_tokens + 1, sizeof(char *));
 	if (tokens == NULL)
 		return (NULL);
 	start = 0;
 	i = 0;
 	while (i < num_tokens && s[start] != '\0')
 	{
-		while (s[start] == c && s[start] != '\0')
-			start++;
-		len = 0;
-		while (s[start + len] != c && s[start + len] != '\0')
-			len++;
+		start = ft_jump_to_next_word(s, start, c);
+		len = ft_get_word_length(s + start, c);
 		if (len > 0)
+		{
 			tokens[i++] = ft_substr(s, start, len);
+			if (tokens[i - 1] == NULL)
+				return (ft_free_all(tokens, i - 1));
+		}
 		start = start + len;
 	}
-	tokens[i] = NULL;
 	return (tokens);
 }
-*/

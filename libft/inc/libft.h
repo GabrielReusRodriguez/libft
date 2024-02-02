@@ -6,7 +6,7 @@
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:37:22 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/14 22:16:12 by greus-ro         ###   ########.fr       */
+/*   Updated: 2024/02/02 01:09:08 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <stddef.h>
 
-int		ft_atoi(const char *nbr);
+void	*ft_ptr_free(void *ptr);
+char	*ft_ptr_new_char_buffer(size_t size);
+
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 
@@ -26,8 +28,11 @@ int		ft_isdigit(int c);
 int		ft_islower(int c);
 int		ft_isprint(int c);
 int		ft_isupper(int c);
+
+int		ft_atoi(const char *nbr);
 char	*ft_itoa(int n);
 char	*ft_utoa(unsigned int n);
+char	*ft_dtoh(unsigned long u_number, unsigned int up_case);
 
 void	*ft_memcpy(void	*dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -39,7 +44,6 @@ int		ft_iputchar_fd(char c, int fd);
 int		ft_iputstr_fd(char *s, int fd);
 int		ft_iputendl_fd(char *s, int fd);
 int		ft_iputnbr_fd(int n, int fd);
-int		ft_iputstr_fd(char *s, int fd);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -61,6 +65,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_istrchr(char *src, char *c);
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);

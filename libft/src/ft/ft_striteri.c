@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 00:28:49 by greus-ro          #+#    #+#             */
-/*   Updated: 2024/01/16 23:26:27 by greus-ro         ###   ########.fr       */
+/*   Created: 2024/01/10 00:31:39 by greus-ro          #+#    #+#             */
+/*   Updated: 2024/01/12 00:13:12 by greus-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	unsigned int	i;
 
-	if (n == 0)
-		return (0);
 	i = 0;
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	while (i < n - 1 && str1[i] == str2[i])
+	while (s[i] != '\0')
+	{
+		(*f)(i, s + i);
 		i++;
-	return (str1[i] - str2[i]);
+	}
 }
