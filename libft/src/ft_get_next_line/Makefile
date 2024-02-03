@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
+#    By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 02:39:39 by greus-ro          #+#    #+#              #
-#    Updated: 2024/02/02 01:51:43 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/03 20:32:11 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-INC_DIR	= ../../inc
-BIN_DIR = ../../bin/ft_get_next_line
-SRC_DIR	= ./src
+INC_DIR=../../inc
+BIN_DIR=../../bin/ft_get_next_line
+SRC_DIR=./src
 
 NAME		= ${BIN_DIR}/ft_get_next_line.a
 
@@ -26,18 +26,19 @@ SRC_FILES	= 	ft_get_next_line.c 				\
 
 OBJ_FILES	= $(SRC_FILES:%.c=${BIN_DIR}/%.o)
 DEP_FILES	= $(SRC_FILES:%.c=${BIN_DIR}/%.d)
-SRC = $(addprefix ${SRC_DIR}, ${SRC_FILES})
+
+#SRC = $(addprefix ${SRC_DIR}, ${SRC_FILES})
 
 all: ${NAME}
-
+	
 ${NAME}: ${OBJ_FILES}
-	ar -rcsT ${NAME} ${OBJ_FILES}
+	ar -rcsL ${NAME} ${OBJ_FILES}
 	cp ${SRC_DIR}/ft_get_next_line.h ${INC_DIR}/
 	
-·{BIN_DIR}:
+${BIN_DIR}:
 	mkdir -p ${BIN_DIR}
 	
-${BIN_DIR}/%.o : ${SRC_DIR}/%.c ${BIN_DIR} Makefile
+${BIN_DIR}/%.o:${SRC_DIR}/%.c ${BIN_DIR} Makefile
 	${CC} ${CFLAGS} ${DFLAGS} -I ${INC_DIR} -o $@ -c $<
 
 clean:
@@ -49,6 +50,6 @@ fclean: clean
 
 re: fclean all
 
--include ${DEP_FILES} ${BONUS_DEP_FILES}
+-include ${DEP_FILES}
 
 .PHONY: all clean fclean re

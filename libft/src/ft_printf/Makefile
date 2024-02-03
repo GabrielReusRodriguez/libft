@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
+#    By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 02:39:39 by greus-ro          #+#    #+#              #
-#    Updated: 2024/02/02 02:03:31 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/03 20:32:14 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,10 @@ SRC = $(addprefix ${SRC_DIR}, ${SRC_FILES})
 all: ${NAME}
 
 ${NAME}: ${OBJ_FILES}
-	ar -rcsT ${NAME} ${OBJ_FILES}
+	ar -rcsL ${NAME} ${OBJ_FILES}
 	cp ${SRC_DIR}/ft_printf.h ${INC_DIR}/
 	
-·{BIN_DIR}:
+${BIN_DIR}:
 	mkdir -p ${BIN_DIR}
 	
 ${BIN_DIR}/%.o : ${SRC_DIR}/%.c ${BIN_DIR} Makefile

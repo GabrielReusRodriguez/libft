@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greus-ro <greus-ro@student.42barcel>       +#+  +:+       +#+         #
+#    By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/02/02 01:49:35 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/03 20:32:05 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 BIN_DIR=../../bin/ft
-SRC_DIR=.
+SRC_DIR=./src
 INC_DIR=../../inc
 
-NAME=${BIN_DIR}/libft.a
+NAME=${BIN_DIR}/ft_utils.a
 CFLAGS=-Wall -Wextra -Werror -MMD -MP
 
 LIBFT_SRC_FILES=	ft_atoi.c			\
@@ -83,13 +83,13 @@ LIBFT_DEP_FILES=$(LIBFT_SRC_FILES:%.c=${BIN_DIR}/%.d)
 all:${NAME}
 
 ${NAME}: ${LIBFT_OBJ_FILES} ${BONUS_OBJ_FILES}
-	cp ./libft.h ${INC_DIR}/
-	ar -rcsT ${NAME} ${LIBFT_OBJ_FILES}
+	cp ${SRC_DIR}/libft.h ${INC_DIR}/
+	ar -rcsL ${NAME} ${LIBFT_OBJ_FILES}
 
 ${BIN_DIR}:
 	mkdir -p ${BIN_DIR}
 	
-${BIN_DIR}/%.o:${SRC_DIR}/%.c libft.h Makefile
+${BIN_DIR}/%.o:${SRC_DIR}/%.c ${BIN_DIR} Makefile
 	cc ${CFLAGS}  -c -o $@  -I ${INC_DIR} $< 
 
 clean:
