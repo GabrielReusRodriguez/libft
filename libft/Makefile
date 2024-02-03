@@ -6,7 +6,7 @@
 #    By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/04 01:34:53 by greus-ro          #+#    #+#              #
-#    Updated: 2024/02/03 20:39:37 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/03 22:37:10 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ fclean:
 	make fclean -C  ${FT_DIR}
 	make fclean -C  ${GET_NEXT_DIR}
 	make fclean -C  ${FT_PRINTF_DIR}
-	rm -f ${NAME}
+	rm -f ${BIN_DIR}/${NAME}
 	
 re: fclean all
 

@@ -6,7 +6,7 @@
 #    By: greus-ro <greus-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 02:39:39 by greus-ro          #+#    #+#              #
-#    Updated: 2024/02/03 20:32:11 by greus-ro         ###   ########.fr        #
+#    Updated: 2024/02/03 22:38:02 by greus-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ clean:
 	rm -f ${BIN_DIR}/*.d
 
 fclean: clean 
-	rm -f ./*.a
+	rm -f ${NAME}
 
 re: fclean all
 
